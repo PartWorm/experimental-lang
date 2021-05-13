@@ -1,4 +1,4 @@
-import { infer } from './infer';
+import { infer_paren } from './infer-paren';
 import parse_exp from './parse';
 import { create_runtime, execute, lang_stringify, Runtime } from './runtime';
 import { srcs } from './src';
@@ -14,7 +14,7 @@ const execute_source = (runtime: Runtime, src: string[]) => {
 (async () => {
 	const runtime = create_runtime();
 	for (const src_str of srcs) {
-		const src = infer(src_str.split('\n'));
+		const src = infer_paren(src_str.split('\n'));
 		console.log('<< ' + src.join('\n'));
 		const result = await execute_source(runtime, src);
 		if (result.type == 'returned') {

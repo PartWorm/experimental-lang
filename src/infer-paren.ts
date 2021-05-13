@@ -6,7 +6,7 @@ const close_to_open = {
 	')': '(', ']': '[', '}': '{',
 };
 
-export const infer = (lines: string[]) => {
+export const infer_paren = (lines: string[]) => {
 	const result: string[] = [];
 	const paren_stack: [string, number][] = [];
 	for (let i = 0; i < lines.length; ++i) {
